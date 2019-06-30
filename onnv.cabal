@@ -1,0 +1,63 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: fcd11377ff149bd57dfe9fe57155a729facb56422c61c3d3cffcecb1cd769046
+
+name:           onnv
+version:        0.1.0.0
+description:    ONNV is a shape validator of ONNX models. Please see the details at <https://github.com/bonotake/onnv>.
+homepage:       https://github.com/bonotake/onnv
+bug-reports:    https://github.com/bonotake/onnv/issues
+author:         Takeo Imai <takeo.bono@gmail.com>
+maintainer:     Takeo Imai <takeo.bono@gmail.com>
+copyright:      2019 Takeo Imai
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/onnv
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_onnv
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable onnv-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_onnv
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , Naperian >=0.1.1
+    , onnv
+  default-language: Haskell2010
+
+test-suite onnv-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_onnv
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , onnv
+  default-language: Haskell2010
